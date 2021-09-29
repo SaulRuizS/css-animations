@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
+
+$mint-cream: #f1fffa;
+$background: #2f394d;
+$background-secondary: #2b3d41;
+$black-coral: #4c5f6b;
+$morning-blue: #83a0a0;
+$english-violet: #45364b;
+$medium-champagne: #eddea4;
+$light-salmon: #f7a072;
+$medium-carmine: #a44a3f;
+
+@mixin section__background($background: none) {
+	background-color: $background;
+	height: 300px;
+	width: 100vw;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: $background;
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+	color: $mint-cream;
+	display: flex;
+	justify-content: center;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 4rem;
+	width: 100vw;
+}
+
+.scale {
+	// background-color: $morning-blue;
+	// height: 300px;
+	// width: 100vw;
+	@include section__background($background: $morning-blue);
+}
