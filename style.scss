@@ -9,21 +9,23 @@ $english-violet: #45364b;
 $medium-champagne: #eddea4;
 $light-salmon: #f7a072;
 $medium-carmine: #a44a3f;
+$green-sheen: #498f7d;
+$ash-grey: #989e8b;
 
 @mixin section($background: none) {
+	@extend %subtitle;
 	align-items: center;
 	background-color: $background;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	height: 300px;
+	height: 400px;
 	width: 100vw;
 }
 
 @mixin hover($transform: none) {
-	&:hover {
-		transform: $transform;
-		transition: 400ms;
-	}
+	transform: $transform;
+	transition: 400ms;
 }
 
 @mixin element($background: none) {
@@ -32,6 +34,16 @@ $medium-carmine: #a44a3f;
 	cursor: pointer;
 	height: 200px;
 	width: 200px;
+}
+
+%subtitle {
+	align-content: center;
+	color: $mint-cream;
+	display: flex;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 2rem;
+	justify-content: center;
+	width: 100%;
 }
 
 * {
@@ -61,7 +73,9 @@ h1 {
 	&__element {
 		@include element($background: $mint-cream);
 
-		@include hover($transform: scale(1.3));
+		&:hover {
+			@include hover($transform: scale(1.3));
+		}
 	}
 }
 
@@ -71,6 +85,46 @@ h1 {
 	&__element {
 		@include element($background: $mint-cream);
 
-		@include hover($transform: rotate(180deg));
+		&:hover {
+			@include hover($transform: rotate(180deg));
+		}
+	}
+}
+
+.skew {
+	@include section($background: $english-violet);
+
+	&__element {
+		@include element($background: $mint-cream);
+
+		&:hover {
+			@include hover($transform: skew(-20deg, 0deg));
+		}
+	}
+}
+
+.matrix {
+	@include section($background: $medium-carmine);
+
+	&__element {
+		@include element($background: $mint-cream);
+
+		&:hover {
+			@include hover($transform: matrix(1.4, -0.5, 0.5, 1.4, -100, -40));
+			//matrix parameters:
+			//matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )
+		}
+	}
+}
+
+.perspective {
+	@include section($background: $ash-grey);
+
+	&__element {
+		@include element($background: $mint-cream);
+
+		&:hover {
+			@include hover;
+		}
 	}
 }
