@@ -130,3 +130,33 @@ h1 {
 		}
 	}
 }
+
+.backface {
+	@include section($background: $green-sheen);
+
+	&__element {
+		@include element($background: none);
+
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		transform-style: preserve-3d;
+
+		&--front {
+			@include element($background: $mint-cream);
+			backface-visibility: hidden;
+			position: absolute;
+		}
+
+		&--back {
+			@include element($background: $black-coral);
+			backface-visibility: hidden;
+			position: absolute;
+			transform: rotateX(180deg);
+		}
+
+		&:hover {
+			@include hover($transform: rotateY(180deg));
+		}
+	}
+}
