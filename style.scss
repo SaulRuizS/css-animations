@@ -119,12 +119,14 @@ h1 {
 
 .perspective {
 	@include section($background: $ash-grey);
+	perspective: 200px;
 
 	&__element {
 		@include element($background: $mint-cream);
 
 		&:hover {
-			@include hover;
+			@include hover($transform: rotateX(50deg));
+			transform-style: preserve-3d;
 		}
 	}
 }
