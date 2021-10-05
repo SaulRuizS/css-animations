@@ -1,0 +1,65 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 62.5%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.parallax {
+	&-container {
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		perspective: 8px;
+		perspective-origin: 50%;
+		position: relative;
+		width: 100%;
+	}
+}
+
+.image {
+	left: 0px;
+	margin: 0 auto;
+	right: 0px;
+	position: absolute;
+	transform: 0 50%;
+	// z-index: 2;
+
+	&.background {
+		// background: rgb(48, 44, 120);
+		// background: linear-gradient(
+		// 	180deg,
+		// 	rgba(48, 44, 120, 1) 0%,
+		// 	rgba(87, 50, 199, 1) 25%,
+		// 	rgba(138, 87, 222, 1) 50%,
+		// 	rgba(189, 107, 236, 1) 75%,
+		// 	rgba(191, 143, 207, 1) 100%
+		// );
+		height: auto;
+		width: 100%;
+		// z-index: 1;
+	}
+
+	&.middle {
+		height: 100%;
+		transform: translateZ(5px) scale(0.375);
+		transform-origin: 50%;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&.front {
+		transform: translateZ(2px) scale(0.75);
+		top: calc(1000px - 700px);
+
+		img {
+			width: 100%;
+		}
+	}
+}

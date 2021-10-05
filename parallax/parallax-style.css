@@ -1,1 +1,60 @@
-/* No CSS *//*# sourceMappingURL=parallax-style.css.map */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.parallax-container {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-perspective: 8px;
+          perspective: 8px;
+  -webkit-perspective-origin: 50%;
+          perspective-origin: 50%;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  left: 0px;
+  margin: 0 auto;
+  right: 0px;
+  position: absolute;
+  -webkit-transform: 0 50%;
+          transform: 0 50%;
+}
+
+.image.background {
+  height: auto;
+  width: 100%;
+}
+
+.image.middle {
+  height: 100%;
+  -webkit-transform: translateZ(5px) scale(0.375);
+          transform: translateZ(5px) scale(0.375);
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+}
+
+.image.middle img {
+  width: 100%;
+}
+
+.image.front {
+  -webkit-transform: translateZ(2px) scale(0.75);
+          transform: translateZ(2px) scale(0.75);
+  top: calc(1000px - 700px);
+}
+
+.image.front img {
+  width: 100%;
+}
+/*# sourceMappingURL=parallax-style.css.map */
