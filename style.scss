@@ -23,17 +23,21 @@ $ash-grey: #989e8b;
 	width: 100vw;
 }
 
-@mixin hover($transform: none) {
-	transform: $transform;
-	transition: 400ms;
-}
-
 @mixin element($background: none) {
+	@extend %transition;
 	background-color: $background;
 	border-radius: 50px;
 	cursor: pointer;
 	height: 200px;
 	width: 200px;
+}
+
+@mixin transform($transform: none) {
+	transform: $transform;
+}
+
+%transition {
+	transition: transform 300ms ease 0.1s;
 }
 
 %subtitle {
@@ -69,63 +73,66 @@ h1 {
 
 .scale {
 	@include section($background: $morning-blue);
-
-	&__element {
-		@include element($background: $mint-cream);
-
-		&:hover {
-			@include hover($transform: scale(1.3));
+	.subcontainer {
+		.element {
+			@include element($background: $mint-cream);
+			transition-delay: 500ms;
+		}
+		&:hover .element {
+			@include transform($transform: scale(1.3));
 		}
 	}
 }
 
 .rotate {
 	@include section($background: $light-salmon);
-
-	&__element {
-		@include element($background: $mint-cream);
-
-		&:hover {
-			@include hover($transform: rotate(180deg));
+	.subcontainer {
+		.element {
+			@include element($background: $mint-cream);
+		}
+		&:hover .element {
+			@include transform($transform: rotate(180deg));
+			transition: transform 800ms ease;
 		}
 	}
 }
 
 .skew {
 	@include section($background: $english-violet);
-
-	&__element {
-		@include element($background: $mint-cream);
-
-		&:hover {
-			@include hover($transform: skew(-20deg, 0deg));
+	.subcontainer {
+		.element {
+			@include element($background: $mint-cream);
+		}
+		&:hover .element {
+			@include transform($transform: skew(-20deg, 0deg));
 		}
 	}
 }
 
 .matrix {
 	@include section($background: $medium-carmine);
-
-	&__element {
-		@include element($background: $mint-cream);
-
-		&:hover {
-			@include hover($transform: matrix(1.4, -0.5, 0.5, 1.4, -100, -40));
+	.subcontainer {
+		.element {
+			@include element($background: $mint-cream);
+		}
+		&:hover .element {
+			@include transform($transform: matrix(1.4, -0.5, 0.5, 1.4, -100, -40));
 			//matrix parameters:
 			//matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )
+			transition: transform 600ms ease;
 		}
 	}
 }
 
 .perspective {
 	@include section($background: $ash-grey);
-	perspective: 200px;
-
-	&__element {
-		@include element($background: $mint-cream);
-
-		&:hover {
-			@include hover($transform: rotateX(50deg));
+	.subcontainer {
+		perspective: 200px;
+		.element {
+			@include element($background: $mint-cream);
+		}
+		&:hover .element {
+			@include transform($transform: rotateX(50deg));
 			transform-style: preserve-3d;
 		}
 	}
@@ -133,30 +140,29 @@ h1 {
 
 .backface {
 	@include section($background: $green-sheen);
-
-	&__element {
-		@include element($background: none);
-
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		transform-style: preserve-3d;
-
-		&--front {
-			@include element($background: $mint-cream);
-			backface-visibility: hidden;
-			position: absolute;
+	.subcontainer {
+		perspective: 400px;
+		.element {
+			@include element($background: none);
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			transform-style: preserve-3d;
+			&--front {
+				@include element($background: $mint-cream);
+				backface-visibility: hidden;
+				position: absolute;
+			}
+			&--back {
+				@include element($background: $black-coral);
+				backface-visibility: hidden;
+				position: absolute;
+				transform: rotateX(180deg);
+			}
 		}
-
-		&--back {
-			@include element($background: $black-coral);
-			backface-visibility: hidden;
-			position: absolute;
-			transform: rotateX(180deg);
-		}
-
-		&:hover {
-			@include hover($transform: rotateY(180deg));
+		&:hover .element {
+			@include transform($transform: rotateY(180deg));
+			transition: transform 800ms ease;
 		}
 	}
 }
