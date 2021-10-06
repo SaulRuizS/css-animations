@@ -76,9 +76,11 @@ h1 {
 	.subcontainer {
 		.element {
 			@include element($background: $mint-cream);
+			transition-delay: 300ms;
 		}
-		&:hover .element {
+		&:hover > .element {
 			@include transform($transform: scale(1.3));
+			transition-delay: 0ms;
 		}
 	}
 }
@@ -88,10 +90,12 @@ h1 {
 	.subcontainer {
 		.element {
 			@include element($background: $mint-cream);
+			// transition-delay: 500ms;
 		}
 		&:hover .element {
 			@include transform($transform: rotate(180deg));
-			transition: transform 800ms ease;
+			transition: transform 600ms ease;
+			// transition-delay: 0ms;
 		}
 	}
 }

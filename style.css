@@ -72,11 +72,15 @@ h1 {
   cursor: pointer;
   height: 200px;
   width: 200px;
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
 }
 
-.scale .subcontainer:hover .element {
+.scale .subcontainer:hover > .element {
   -webkit-transform: scale(1.3);
           transform: scale(1.3);
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
 }
 
 .rotate {
@@ -109,10 +113,10 @@ h1 {
 .rotate .subcontainer:hover .element {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
-  -webkit-transition: -webkit-transform 800ms ease;
-  transition: -webkit-transform 800ms ease;
-  transition: transform 800ms ease;
-  transition: transform 800ms ease, -webkit-transform 800ms ease;
+  -webkit-transition: -webkit-transform 600ms ease;
+  transition: -webkit-transform 600ms ease;
+  transition: transform 600ms ease;
+  transition: transform 600ms ease, -webkit-transform 600ms ease;
 }
 
 .skew {
