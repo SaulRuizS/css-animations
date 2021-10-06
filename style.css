@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
 .scale .subcontainer .element, .rotate .subcontainer .element, .skew .subcontainer .element, .matrix .subcontainer .element, .perspective .subcontainer .element, .backface .subcontainer .element, .backface .subcontainer .element--front, .backface .subcontainer .element--back {
-  -webkit-transition: -webkit-transform 300ms ease 0.1s;
-  transition: -webkit-transform 300ms ease 0.1s;
-  transition: transform 300ms ease 0.1s;
-  transition: transform 300ms ease 0.1s, -webkit-transform 300ms ease 0.1s;
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
 }
 
 .scale, .rotate, .skew, .matrix, .perspective, .backface {
@@ -72,8 +72,6 @@ h1 {
   cursor: pointer;
   height: 200px;
   width: 200px;
-  -webkit-transition-delay: 500ms;
-          transition-delay: 500ms;
 }
 
 .scale .subcontainer:hover .element {
