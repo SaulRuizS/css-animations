@@ -30,6 +30,7 @@ html,
 body {
   background-color: #2f394d;
   font-size: 62.5%;
+  height: 100vh;
   margin: 0px;
   overflow-x: hidden;
   padding: 0px;
@@ -336,15 +337,125 @@ footer div a {
   color: #f1fffa;
   font-family: "Josefin Sans", sans-serif;
   font-size: 2.4rem;
-  margin: 20px 50px;
   text-decoration: none;
   text-align: center;
   width: auto;
+}
+
+footer div a:nth-child(1) {
+  margin: 20px 60px 20px 80px;
+}
+
+footer div a:nth-child(2) {
+  margin: 20px 60px 20px 20px;
 }
 
 footer div a:hover {
   color: #83a0a0;
   -webkit-transition: 200ms linear;
   transition: 200ms linear;
+}
+
+.loader {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2f394d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+  -webkit-animation: loader 2400ms linear forwards;
+          animation: loader 2400ms linear forwards;
+}
+
+.loader div {
+  background-color: #83a0a0;
+  border-radius: 50%;
+  height: 50px;
+  margin: 0px 10px;
+  position: relative;
+  width: 50px;
+  -webkit-animation: loading-circle 1000ms ease-in-out infinite;
+          animation: loading-circle 1000ms ease-in-out infinite;
+  translate: 0px;
+}
+
+@-webkit-keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes loading-circle {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  40% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  70% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+}
+
+@keyframes loading-circle {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  40% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  70% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+}
+
+.loader div:nth-child(1) {
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
+}
+
+.loader div:nth-child(2) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.loader div:nth-child(3) {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
 }
 /*# sourceMappingURL=style.css.map */
